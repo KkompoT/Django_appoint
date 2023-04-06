@@ -1,0 +1,19 @@
+{% extends 'appoint/base.html' %}
+{% load static %}
+{% block cta %}
+<div class="container hero">
+        <div class="row">
+            <div class="col-12 col-lg-6 col-xl-5 offset-xl-1">
+                <h1>Запишись на прием без очередей</h1>
+                <p> Запишись первым </p>
+                    <a href="{% url 'appointment' %}" class="btn btn-light btn-lg action-button" type="button">Журнал Записи</a>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock cta %}
+
+{% block content %}
+
+{% endblock content %}
