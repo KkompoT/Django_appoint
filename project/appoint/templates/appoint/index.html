@@ -1,11 +1,16 @@
 {% extends 'appoint/base.html' %}
 {% load static %}
+
+
+
 {% block cta %}
-<div class="container hero">
+
+<div class="container hero" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+     xmlns="http://www.w3.org/1999/html">
         <div class="row">
             <div class="col-12 col-lg-6 col-xl-5 offset-xl-1">
                 <h1>Запишись на прием без очередей</h1>
-                <p> Запишись первым </p>
+                <p> Будь первым </p>
                     <a href="{% url 'appointment' %}" class="btn btn-light btn-lg action-button" type="button">Журнал Записи</a>
             </div>
 
@@ -15,5 +20,188 @@
 {% endblock cta %}
 
 {% block content %}
+<section class="container py-5"  style="margin-block:200px;" id="team">
+    <div class="row text-center ">
+        <div class="col-lg-8 mx-auto">
+            <h1 class="display-4">Наша команда</h1>
+            <p class="lead">Тут работают профессионалы.</p>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row text-center">
+        <div class="col-xl-3 col-sm-6 mb-5">
+            <div class="bg-white rounded shadow-sm py-5 px-4"><img src="{% static 'img/team1.jpg' %}" alt="" class=" mh-100img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                <h5 class="mb-0">Dog</h5>
+                <span class="small text-uppercase text-muted">Специалист</span>
+            </div>
+    </div>
+
+    <div class="col-xl-3 col-sm-6 mb-5">
+    <div class="bg-white rounded shadow-sm py-5 px-4"><img src="{% static 'img/team2.jpg' %}" alt="" class=" mh-100 rounded-circle mb-3 img-thumbnail shadow-sm">
+        <h5 class="mb-0">Baby</h5>
+        <span class="small text-uppercase text-muted">Главный специалист</span>
+    </div>
+    </div>
+
+    <div class="col-xl-3 col-sm-6 mb-5">
+        <div class="bg-white rounded shadow-sm py-5 px-4"><img src="{% static 'img/team3.jpg' %}" alt="" class=" mh-100img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+            <h5 class="mb-0">Kat</h5>
+            <span class="small text-uppercase text-muted">Специалист</span>
+        </div>
+    </div>
+
+</section>
+
+
+<section id="services">
+  <div class="bg-primary text-center py-5 mb-4">
+      <div class="container">
+        <h1 class="fw-light text-white">Сервис</h1>
+        <p class="overview">Мы в кротчайщие сроки запишем вас к Главному специалисту</p>
+      </div>
+    </div>
+
+  <div class="container">
+    <div class="row text-center">
+
+  <div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-0 shadow">
+        <img src="{% static 'img/service1.jpg' %}" class="card-img-top" alt="...">
+        <div class="card-body text-center">
+            <h5 class="card-title mb-0">Консультант</h5>
+            <div class="card-text text-black-50">Я выслушаю вас</div>
+        </div>
+    </div>
+  </div>
+
+  <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-0 shadow">
+          <img src="{% static 'img/service2.jpg' %}" class="card-img-top" alt="...">
+          <div class="card-body text-center">
+            <h5 class="card-title mb-0">Консультант</h5>
+            <div class="card-text text-black-50">Я выслушаю вас.</div>
+          </div>
+        </div>
+      </div>
+
+</section>
+
+
+<section class="text-center conatiner" style="margin-block:200px;" id="reviews">
+    <h2>Довольные клиенты</h2>
+    <div id="Mycarousel" class="carousel slide" data-ride="carousel">
+        <!-- Индикаторы карусели -->
+
+        <ol class="carousel-indicators">
+            <li data-target="#Mycarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#Mycarousel" data-slide-to="1"></li>
+            <li data-target="#Mycarousel" data-slide-to="2"></li>
+        </ol>
+        <!-- фотки карусель -->
+
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="img-box"><img src="{% static 'img/client1.jpg' %}" alt=""></div>
+                <p class="testimonial">Отличный сервис</p>
+                <p class="overview">Клиент1</p>
+            </div>
+
+
+            <div class="carousel-item">
+                <div class="img-box"><img src="{% static 'img/client2.jpg' %}" alt=""></div>
+                <p class="testimonial">Отличный сервис</p>
+                <p class="overview">Клиент2</p>
+            </div>
+
+
+            <div class="carousel-item">
+                <div class="img-box"><img src="{% static 'img/client3.jpg' %}" alt=""></div>
+                <p class="testimonial">Отличный сервис</p>
+                <p class="overview">Клиент3</p>
+            </div>
+        </div>
+
+        <a class="carousel-control-prev" href="#Mycarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Предыдущая</span>
+        </a>
+
+        <a class="carousel-control-next" href="#Mycarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Следующая</span>
+        </a>
+    </div>
+
+
+
+</section>
+
+<section id="contact" class="card m-4 p-4">
+    <div class="container">
+        <div class="row text-center">
+
+            <div class="col-sm-6">
+            <div class="contact-detail-box">
+              <i class="far fa-envelope text-colored fa-3x"></i>
+              <h4>Напиши нам либо позвони</h4>
+              <abbr title="Phone">Тел.</abbr> +375 29292929<br>
+              Email: <a href="mailto:email@email.com" class="text-muted">email@email.com</a>
+            </div>
+          </div>
+
+     <div class="col-sm-6">
+            <div class="contact-detail-box">
+              <i class="fa fa-map-marker fa-3x text-colored"></i>
+              <h4>Мы находимся</h4>
+
+              <address>
+              Улицы нет, 6<br>
+              Город которого нет<br>
+            </address>
+            </div>
+     </div>
+
+
+
+        </div>
+    <!-- Форма для контактов -->
+          <div class="col-sm-6">
+            <form role="form" name="ajax-form" id="ajax-form" method="post" class="form-main" action="{% url 'home' %}">
+            {% csrf_token %}
+              <div class="form-group">
+                <label for="name2">Name</label>
+                <input class="form-control" id="name2" name="name" type="text" placeholder="name">
+                <div class="error" id="err-name" style="display: none;">Please enter name</div>
+              </div> <!-- /Form-name -->
+
+              <div class="form-group">
+                <label for="email2">Email</label>
+                <input class="form-control" id="email2" name="email" type="text" placeholder="email">
+                <div class="error" id="err-emailvld" style="display: none;">E-mail is not a valid format</div>
+              </div> <!-- /Form-email -->
+
+              <div class="form-group">
+                <label for="message2">Message</label>
+                <textarea class="form-control" id="message2" name="message" rows="5" placeholder="message">Message</textarea>
+
+                <div class="error" id="err-message" style="display: none;">Please enter message</div>
+              </div>
+
+              <div class="row">
+                  <button type="submit" class="btn btn-primary btn-shadow btn-rounded w-md" id="send">Send</button>
+                </div>
+          </div>
+
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
 
 {% endblock content %}
