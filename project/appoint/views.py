@@ -11,11 +11,13 @@ import datetime
 from django.template import Context
 from django.template.loader import render_to_string, get_template
 
+from django.core.mail import send_mail
+
 
 class HomeTemplateView(TemplateView):
     template_name = "appoint/index.html"
 
-    def post(self, request):                        # Почтовый запрос
+    def post(self, request):  # Почтовый запрос
         name = request.POST.get("name")
         email = request.POST.get("email")
         message = request.POST.get("message")
@@ -27,6 +29,7 @@ class HomeTemplateView(TemplateView):
             to=[settings.EMAIL_HOST_USER],
             reply_to=[email]
         )
+
         email.send()
         return HttpResponse("Письмо успешно отправлено")
 
@@ -51,8 +54,7 @@ class AppointmentTemplateView(TemplateView):
 
         appointment.save()
 
-        messages.add_message(request, messages.SUCCESS,
-                             f"Спасибо {fname} после рассмотрения, мы ответим вам")
+        messages.add_message(request, messages.SUCCESS, f"Спасибо {fname} после рассмотрения, мы ответим вам")
         return HttpResponseRedirect(request.path)
 
 
