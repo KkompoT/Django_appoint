@@ -29,9 +29,11 @@ class HomeTemplateView(TemplateView):
             to=[settings.EMAIL_HOST_USER],
             reply_to=[email]
         )
-
-        email.send()
-        return HttpResponse("Письмо успешно отправлено")
+        try:
+            email.send()
+            return HttpResponse("Письмо успешно отправлено")
+        except Exception as a:
+            return HttpResponse(f"Ошибка отправки письма: {str(a)}")
 
 
 class AppointmentTemplateView(TemplateView):
