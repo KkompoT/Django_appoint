@@ -15,7 +15,7 @@ from django.template.loader import render_to_string, get_template
 class HomeTemplateView(TemplateView):
     template_name = "appoint/index.html"
 
-    def post(self, request):
+    def post(self, request):                        # Почтовый запрос
         name = request.POST.get("name")
         email = request.POST.get("email")
         message = request.POST.get("message")

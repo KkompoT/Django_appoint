@@ -18,7 +18,7 @@
     background:transparent;
     padding-top:.75rem;
     padding-bottom:.75rem;
-    color:#fff;
+    color:#ffff;
     border-radius:0;
     box-shadow:none;
     border:none;
@@ -304,9 +304,9 @@
 
 
 
-  /*############
+ /* *//*############
   CONTACT
-##############*/
+##############*//*
 
   .form-control {
     box-shadow: none !important;
@@ -317,8 +317,8 @@
   .form-control:hover ,.form-control:focus{
     border-color: #97a0af;
   }
-  
-  
+
+
   .error {
     margin: 8px 0px;
     display: none;
@@ -335,18 +335,18 @@
     margin: 20px 0px;
     font-size: 15px;
   }
-  
+
   .contact-detail-box {
     margin-bottom: 50px;
   }
-  
+
   .contact-detail-box address {
     font-size: 14px;
   }
   .contact-map {
     background-color: #ededed;
   }
-  
+
   .title-box .border,.btn-primary,.back-to-top,
   .logo i,.question-q-box,.social-circle li a:hover {
     background-color: #f16000 !important;
@@ -358,7 +358,7 @@
   .navbar-custom .navbar-nav li.active a {
     color: #f16000;
   }
-  
+
   .btn-primary {
     border: 1px solid #f16000 !important;
   }
@@ -380,14 +380,14 @@
     background-color: #d85600 !important;
     border: 1px solid #d85600 !important;
   }
-  
+
   .btn-shadow.btn-primary {
     box-shadow: 1px 5px 9px rgba(241, 96, 1, 0.32);
   }
-  
-  
-  
-  /*======= Responsive ======*/
+
+
+
+  *//*======= Responsive ======*//*
   @media (min-width: 768px) {
       .nav-custom-left {
       margin-left: 5%;
@@ -401,7 +401,7 @@
       padding-right: 30px;
     }
   }
-  
+
   @media (max-width: 768px) {
     .navbar-custom {
           -moz-box-shadow: 0 2px 2px rgba(0,0,0,.1);
@@ -418,8 +418,8 @@
       margin-top: 30px;
     }
   }
-  
-  
+
+
   @media only screen and (min-width: 768px) and (max-width: 991px){
     .blog-wrapper .blog-item {
       width: 50%;
@@ -432,7 +432,7 @@
   }
   }
   @media only screen and (min-width: 767px) and (max-width: 991px){
-    
+
   }
   @media (max-width: 767px) {
     .blog-wrapper .blog-item {
@@ -444,4 +444,4 @@
     .blog-detail-box {
     padding-right: 0px;
   }
-  }
+  }*/
