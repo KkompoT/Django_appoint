@@ -23,7 +23,7 @@
 <body>
 
   <div class="header" style="
-  background: rgb(177, 177, 177) url('../static/img/header.png') no-repeat fixed center
+  background: rgb(177, 177, 177) url('../static/img/header.png')
   {% if "appointment" in request.path %}
   max-height:300px!important;min-height:300px!important;
   {% endif %}
@@ -58,7 +58,7 @@
                   </li>
                   {% endif %}
                   <li class="nav-item" role="presentation">
-                    <a href="{% url 'manage' %}" style="float: left;cursor:pointer;" aria-expanded="true" title="Ты имеешь 6 необработанных записей">
+                    <a href="{% url 'manage' %}" style="float: left;cursor:pointer;" aria-expanded="true" title="You Have 6 New Appointments">
                       <i class="far fa-bell" style="font-size: 20px; float: left; color: black">
                       </i>
                   </a>

@@ -340,20 +340,20 @@
 
 {% block content %}
 
-{% if messages %}
-    <div class="card notification-card notification-invitation">
-        <div class="card-body">
-        {% for message in messages %}
-                <div class="card-title">{{message}} </div>
-            {% endfor %}
+    {% if messages %}
+        <div class="card notification-card notification-invitation">
+            <div class="card-body">
+            {% for message in messages %}
+                    <div class="card-title">{{message}} </div>
+                {% endfor %}
+         </div>
         </div>
-      </div> 
     {% endif %}
 
     <div class="container mt-5">
         <div class="col-11 text-center mt-4 mb-4">
             <h3>
-                Manage appointments
+                Редактор записей
             </h3>
         </div>
         <div class="row">
