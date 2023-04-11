@@ -11,6 +11,7 @@ class Appointment(models.Model):
     accepted = models.BooleanField(default=False, verbose_name="Подтверждение")
     accepted_date = models.DateField(auto_now_add=False, null=True, blank=True)
 
+
     def __str__(self):
         return self.first_name
 
