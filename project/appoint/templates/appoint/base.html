@@ -54,16 +54,21 @@
                     </li>
                     {% if request.user.is_authenticated %}
                     <li class="nav-item" role="presentation">
-                      <a class="nav-link active" href="{% url 'manage' %}">Manage</a>
+                      <a class="nav-link active" href="{% url 'manage' %}">Редактирование</a>
+                  </li>
+                    <li class="nav-item" role="presentation">
+
+                    <a href="{% url 'manage' %}" style="float: left;cursor:pointer;" aria-expanded="true" title="You Have New Appointments">
+                    <i class="far fa-bell" style="font-size: 20px; float: left; color: black">
+                        </i>
+                    </a>
+                        <span class="badge badge-danger">{{count}}</span>
                   </li>
                   {% endif %}
-                  <li class="nav-item" role="presentation">
-                    <a href="{% url 'manage' %}" style="float: left;cursor:pointer;" aria-expanded="true" title="You Have 6 New Appointments">
-                      <i class="far fa-bell" style="font-size: 20px; float: left; color: black">
-                      </i>
-                  </a>
-                  <span class="badge badge-danger">{{count}}</span>
-                </li>
+
+
+
+
 
 
                 </ul>
