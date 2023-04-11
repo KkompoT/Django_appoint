@@ -100,3 +100,5 @@ class ManageAppointmentTemplateView(ListView):
             "title": "Редактор записей"
         })
         return context
+
+

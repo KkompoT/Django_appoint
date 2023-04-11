@@ -9,7 +9,7 @@ class Appointment(models.Model):
     request = models.TextField(blank=True)  # Поле 'Запрос' может быть пустым
     sent_date = models.DateField(auto_now_add=True, verbose_name="Дата записи")
     accepted = models.BooleanField(default=False, verbose_name="Подтверждение")
-    accepted_date = models.DateField(auto_now_add=False, null=True, blank=True)
+    accepted_date = models.DateField(auto_now_add=False, null=True, blank=True, verbose_name="Назначеное время")
 
 
     def __str__(self):

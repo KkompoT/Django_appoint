@@ -23,7 +23,10 @@ class AppointAdmin(admin.ModelAdmin):
         'last_name'
     )
 
-    # list_editable =
-    list_filter = ('accepted', 'sent_date')
+
+    list_filter = (
+        'accepted',
+        'sent_date'
+    )
 
 admin.site.register(Appointment, AppointAdmin)
