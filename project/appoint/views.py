@@ -78,6 +78,7 @@ class ManageAppointmentTemplateView(ListView):
         data = {
             "fname": appointment.first_name,
             "date": date,
+
         }
 
         message = get_template('appoint/email.html').render(data)
@@ -100,5 +101,3 @@ class ManageAppointmentTemplateView(ListView):
             "title": "Редактор записей"
         })
         return context
-
-
