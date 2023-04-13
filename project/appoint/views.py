@@ -1,15 +1,17 @@
 from django.http.response import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from django.views.generic.base import TemplateView
 from django.core.mail import EmailMessage, message
 from django.conf import settings
 from django.contrib import messages
 from .models import Appointment
-from django.views.generic import ListView
+from django.views.generic import ListView, FormView, TemplateView
 import datetime
 from django.template import Context
 from django.template.loader import render_to_string, get_template
+from django.contrib.auth.forms import UserCreationForm
+from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from django.core.mail import send_mail
 
@@ -101,3 +103,22 @@ class ManageAppointmentTemplateView(ListView):
             "title": "Редактор записей"
         })
         return context
+
+
+# class RegisterUserView(FormView):
+#     template_name = 'appoint/register.html'
+#     form_class = UserCreationForm
+#     success_url = reverse_lazy('home')
+#
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context['title'] = "Регистрация"
+#         return context
+#
+#     def form_valid(self, form):
+#         form.save()
+#         return super().form_valid(form)
+
+
+def login(request):
+    return HttpResponse
