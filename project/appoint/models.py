@@ -1,4 +1,9 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
+
+
+class User(AbstractUser):
+    pass
 
 
 class Appointment(models.Model):
@@ -10,7 +15,6 @@ class Appointment(models.Model):
     sent_date = models.DateField(auto_now_add=True, verbose_name="Дата записи")
     accepted = models.BooleanField(default=False, verbose_name="Подтверждение")
     accepted_date = models.DateField(auto_now_add=False, null=True, blank=True, verbose_name="Назначеное время")
-
 
     def __str__(self):
         return self.first_name

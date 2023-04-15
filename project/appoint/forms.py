@@ -1,5 +1,6 @@
 from django import forms
 from .models import *
+from django.contrib.auth.forms import AuthenticationForm
 
 class AppointmentForm(forms.Form):
     fname = forms.CharField(max_length=100, label="Имя*", widget=forms.TextInput(attrs={'placeholder': 'Введите свое имя'}))
@@ -13,3 +14,7 @@ class AppointmentForm(forms.Form):
     #         appointment.save()
     #     return appointment
     # choice = forms.ModelChoiceField(queryset=Specialist.objects.all())
+
+class LoginUserForm(AuthenticationForm):
+    username = forms.CharField(label='Логин', widget=forms.TextInput(attrs={'class': 'form-input'}))
+    password = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'form-input'}))

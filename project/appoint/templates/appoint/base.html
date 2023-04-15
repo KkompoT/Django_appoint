@@ -32,7 +32,6 @@
 
  <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
         <div class="container"><a class="navbar-brand" href="{% url 'home' %}">Главная страница</a>
-
             <div class="collapse navbar-collapse"
                 id="navcol-1">
                 <ul class="nav navbar-nav">
@@ -53,25 +52,27 @@
 
                     <li class="nav-item" role="presentation">
 
-                      <a class="nav-link active" href="{% url 'login' %}">Авторизация</a>
+                      {% if user.is_authenticated %}
+                        <li class="nav-item" role="presentation">
+                        <a class="nav-link active" href="{% url 'manage' %}">Редактирование</a>
+                        </li>
+
+                        <li class="nav-item" role="presentation">
+
+                        <a href="{% url 'manage' %}" style="float: left;cursor:pointer;" aria-expanded="true" title="You Have New Appointments">
+                        <i class="far fa-bell" style="font-size: 20px; float: left; color: black">
+                            </i>
+                         </a>
+                        <span class="badge badge-danger">{{count}}</span>
+                         </li>
+                        <a class="nav-link active" href="{% url 'logout' %}">Выйти</a>
+
+                        {% else %}
+                            <a class="nav-link active" href="{% url 'login' %}">Авторизация</a>
+                        {% endif %}
 
                     </li>
 
-
-                    {% if request.user.is_authenticated %}
-                    <li class="nav-item" role="presentation">
-                      <a class="nav-link active" href="{% url 'manage' %}">Редактирование</a>
-                  </li>
-
-                    <li class="nav-item" role="presentation">
-
-                    <a href="{% url 'manage' %}" style="float: left;cursor:pointer;" aria-expanded="true" title="You Have New Appointments">
-                        <i class="far fa-bell" style="font-size: 20px; float: left; color: black">
-                            </i>
-                    </a>
-                        <span class="badge badge-danger">{{count}}</span>
-                  </li>
-                  {% endif %}
                 </ul>
             </div>
         </div>
@@ -81,11 +82,6 @@
     </div>
 {% block content %}{% endblock content %}
 
-  <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
-
- <script>
-    {% block script %}{% endblock script %}
- </script>
 
 </body>
 
