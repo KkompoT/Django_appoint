@@ -1,7 +1,5 @@
-
 from pathlib import Path
 from decouple import config
-
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -22,7 +20,6 @@ AUTH_USER_MODEL = "appoint.User"
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -32,7 +29,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'debug_toolbar',
     'appoint.apps.AppointConfig',
+
 ]
 
 MIDDLEWARE = [
@@ -43,6 +42,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware'
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -119,10 +119,20 @@ else:
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = "smtp.mail.ru"
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
-EMAIL_HOST_USER =config("EADDRESS")
-EMAIL_HOST_PASSWORD =config("EPASSWORD")
+EMAIL_HOST_USER = config("EADDRESS")
+EMAIL_HOST_PASSWORD = config("EPASSWORD")
+
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': os.path.join(BASE_DIR, 'project_cache'),
+    }
+}

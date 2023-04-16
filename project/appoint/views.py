@@ -13,8 +13,7 @@ import datetime
 from django.template import Context
 from django.template.loader import render_to_string, get_template
 from django.urls import reverse_lazy
-from .forms import LoginUserForm
-
+from .forms import LoginUserForm, AppointmentForm
 
 from django.core.mail import send_mail
 
@@ -44,25 +43,20 @@ class HomeTemplateView(TemplateView):
 class AppointmentTemplateView(TemplateView):
     template_name = "appoint/appointment.html"
 
+    def get(self, request):
+        form = AppointmentForm()
+        return render(request, self.template_name, {'form': form})
+
     def post(self, request):
-        fname = request.POST.get("fname")
-        lname = request.POST.get("lname")
-        email = request.POST.get("email")
-        mobile = request.POST.get("mobile")
-        message = request.POST.get("request")
+        form = AppointmentForm(request.POST)
+        if form.is_valid():
+            appointment = form.save(commit=False)
+            appointment.save()
+            messages.add_message(request, messages.SUCCESS,
+                                 f"Спасибо {appointment.first_name} после рассмотрения, мы ответим вам")
+            return HttpResponseRedirect(request.path)
 
-        appointment = Appointment.objects.create(
-            first_name=fname,
-            last_name=lname,
-            email=email,
-            phone=mobile,
-            request=message,
-        )
-
-        appointment.save()
-
-        messages.add_message(request, messages.SUCCESS, f"Спасибо {fname} после рассмотрения, мы ответим вам")
-        return HttpResponseRedirect(request.path)
+        return render(request, self.template_name, {'form': form})
 
 
 class ManageAppointmentTemplateView(ListView):

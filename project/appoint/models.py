@@ -9,7 +9,7 @@ class User(AbstractUser):
 class Appointment(models.Model):
     first_name = models.CharField(max_length=50, verbose_name="Имя")
     last_name = models.CharField(max_length=50, verbose_name="Фамилия")
-    email = models.CharField(max_length=50, verbose_name="Почта")
+    email = models.EmailField(max_length=50, verbose_name="Почта")
     phone = models.CharField(max_length=50, verbose_name="Телефон")
     request = models.TextField(blank=True)  # Поле 'Запрос' может быть пустым
     sent_date = models.DateField(auto_now_add=True, verbose_name="Дата записи")

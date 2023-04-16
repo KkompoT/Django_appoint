@@ -1,6 +1,7 @@
 {% extends 'appoint/base.html' %}
-{% block content %}
 
+
+{% block content %}
 {% if messages %}
 <div class="card notification-card notification-invitation">
     <div class="card-body">
@@ -18,55 +19,54 @@
             </h3>
             <p class="blue-text">Используйте эту форму для записи </p>
             <div class="card">
+<form class="form-card" method="POST">
+    {% csrf_token %}
+    <div class="row justify-content-between text-left">
+        <div class="col-md-6">
+            <div class="form-group col-sm-6 flex-column d-flex">
+                {{ form.first_name.label_tag }}
+                {{ form.first_name }}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group col-sm-6 flex-column d-flex">
+                {{ form.last_name.label_tag }}
+                {{ form.last_name }}
+            </div>
+        </div>
+    </div>
 
-                <form class="form-card" method="POST" action="{% url 'appointment' %}">
-                    {% csrf_token %}
-                    <div class="row justify-content-between text-left">
-                        <div class="form-group col-sm-6 flex-column d-flex">
-                            <label class="form-control-label px-3">Имя<span class="text-danger"> *</span>
-                            </label>
-                            <input required type="text" id="fname" name="fname" placeholder="Введите свое имя"
-                                   onblur="validate(1)">
-                        </div>
+    <div class="row justify-content-between text-left">
+        <div class="col-md-6">
+            <div class="form-group col-sm-6 flex-column d-flex">
+                {{ form.email.label_tag }}
+                {{ form.email }}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group col-sm-6 flex-column d-flex">
+                {{ form.phone.label_tag }}
+                {{ form.phone }}
+            </div>
+        </div>
+    </div>
 
-                        <div class="form-group col-sm-6 flex-column d-flex">
-                            <label class="form-control-label px-3">Фамилия<span class="text-danger"> *</span></label>
-                            <input required type="text" id="lname" name="lname" placeholder="Введите свою фамилию"
-                                   onblur="validate(2)">
-                        </div>
+    <div class="row justify-content-between text-left">
+        <div class="col-md-12">
+            <div class="form-group col-12 flex-column d-flex">
+                {{ form.request.label_tag }}
+                {{ form.request }}
+            </div>
+        </div>
+    </div>
 
-                    </div>
+    <div class="row justify-content-end">
+        <div class="form-group col-12 flex-column d-flex">
+            <button type="submit" class="btn btn-primary">Подтвердить</button>
+        </div>
+    </div>
+</form>
 
-                    <div class="row justify-content-between text-left">
-
-                        <div class="form-group col-sm-6 flex-column d-flex">
-                            <label class="form-control-label px-3">ваш Email<span class="text-danger"> *</span>
-                            </label>
-                            <input type="text" id="email" name="email" placeholder="Ваш email" onblur="validate(3)">
-                        </div>
-
-                        <div class="form-group col-sm-6 flex-column d-flex">
-                            <label class="form-control-label px-3">Номер телефона<span
-                                    class="text-danger"> *</span></label>
-                            <input type="text" id="mob" name="mobile" placeholder="Ваш номер" onblur="validate(4)">
-                        </div>
-
-                    </div>
-
-                    <div class="row justify-content-between text-left">
-                        <div class="form-group col-12 flex-column d-flex">
-                            <label class="form-control-label px-3">Опишите кратко по какому поводу обращаетесь и с вами
-                                свяжутся<span class="text-danger"> *</span></label>
-                            <textarea type="text" id="ans" name="request" placeholder="Писать тут"
-                                      onblur="validate(6)"></textarea>
-                        </div>
-                    </div>
-                    <div class="row justify-content-end">
-                        <div class="form-group col-sm-6">
-                            <button type="submit" class="btn-block btn-primary">Отправить</button>
-                        </div>
-                    </div>
-                </form>
             </div>
         </div>
     </div>
