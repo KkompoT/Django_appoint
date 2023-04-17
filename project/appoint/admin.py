@@ -11,3 +11,7 @@ class AppointAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Appointment, AppointAdmin)
+
+
+admin.site.site_title = 'Админка сервиса предварительной записи'
+admin.site.site_header = 'Админка сервиса предварительной записи'

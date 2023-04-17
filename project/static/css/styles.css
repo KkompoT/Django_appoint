@@ -580,17 +580,17 @@
   .page-link {
       position: relative;
       display: block;
-      color: #D85600 !important;
+      color: #fff !important;
       text-decoration: none;
-      background-color: #fff;
-      border: 1px solid #D85600 !important
+      background-color: #b1b1b1;
+      border: 1px solid #fff !important
   }
 
   .page-link:hover {
       z-index: 2;
       color: #fff !important;
-      background-color: #D85600;
-      border-color: #024dbc
+      background-color: #b1b1b1;
+      border-color: #b1b1b1
   }
 
   .page-link:focus {

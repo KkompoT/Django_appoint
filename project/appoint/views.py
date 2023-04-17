@@ -1,6 +1,5 @@
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.models import User
-from django.contrib.auth import logout, login
 from django.http.response import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
@@ -8,13 +7,12 @@ from django.core.mail import EmailMessage, message
 from django.conf import settings
 from django.contrib import messages
 from .models import Appointment
-from django.views.generic import ListView, FormView, TemplateView
+from django.views.generic import ListView, TemplateView
 import datetime
 from django.template import Context
 from django.template.loader import render_to_string, get_template
 from django.urls import reverse_lazy
 from .forms import LoginUserForm, AppointmentForm
-
 from django.core.mail import send_mail
 
 
@@ -43,7 +41,7 @@ class HomeTemplateView(TemplateView):
 class AppointmentTemplateView(TemplateView):
     template_name = "appoint/appointment.html"
 
-    def get(self, request):
+    def get(self, request, **kwargs):
         form = AppointmentForm()
         return render(request, self.template_name, {'form': form})
 
