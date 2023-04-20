@@ -4,5 +4,6 @@ pytz
 asgiref
 Django-debug-toolbar
 djangorestframework
+djoser
 
 
