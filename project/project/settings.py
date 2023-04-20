@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'debug_toolbar',
+    'rest_framework',
     'appoint.apps.AppointConfig',
 
 ]
@@ -127,7 +128,7 @@ EMAIL_USE_SSL = True
 EMAIL_HOST_USER = config("EADDRESS")
 EMAIL_HOST_PASSWORD = config("EPASSWORD")
 
-INTERNAL_IPS = [
+INTERNAL_IPS = [     #debug_toolbar
     '127.0.0.1',
 ]
 
@@ -136,4 +137,11 @@ CACHES = {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
         'LOCATION': os.path.join(BASE_DIR, 'project_cache'),
     }
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer'   # Конфиг DRF
+    ]
 }

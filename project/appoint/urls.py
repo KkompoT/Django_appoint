@@ -11,6 +11,7 @@ urlpatterns = [
     path("manage-appointments/", ManageAppointmentTemplateView.as_view(), name="manage"),
 
     path("", include("django.contrib.auth.urls")),
+    path("", include("api.urls")),
     # path("register/", RegisterUserView.as_view(), name='register'),
 
 
