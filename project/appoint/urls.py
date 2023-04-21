@@ -12,7 +12,7 @@ urlpatterns = [
 
     path("", include("django.contrib.auth.urls")),
     path("", include("api.urls")),
-    # path("register/", RegisterUserView.as_view(), name='register'),
+
 
 
 ]

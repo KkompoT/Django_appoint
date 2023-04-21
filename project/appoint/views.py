@@ -16,6 +16,8 @@ from .forms import LoginUserForm, AppointmentForm
 from django.core.mail import send_mail
 
 
+'''Представление которое позволяет пользователям связаться 
+с администраторами сайта через главную страницу по email'''
 class HomeTemplateView(TemplateView):
     template_name = "appoint/index.html"
 
@@ -38,6 +40,9 @@ class HomeTemplateView(TemplateView):
             return HttpResponse(f"Ошибка отправки письма: {str(a)}")
 
 
+
+"""Представление которое содержит форму, позволяет
+ пользователям отправить запрос на встречу"""
 class AppointmentTemplateView(TemplateView):
     template_name = "appoint/appointment.html"
 
@@ -57,12 +62,13 @@ class AppointmentTemplateView(TemplateView):
         return render(request, self.template_name, {'form': form})
 
 
+'''Представлени отображает шаблон для управления встречами'''
 class ManageAppointmentTemplateView(ListView):
     template_name = "appoint/manage-appointments.html"
     model = Appointment
     context_object_name = "appointments"
     login_required = True
-    paginate_by = 3
+    paginate_by = 3             # ограничение кол-ва записей , отображаемых на странице
 
     def post(self, request):
         date = request.POST.get("date")
@@ -91,7 +97,7 @@ class ManageAppointmentTemplateView(ListView):
         messages.add_message(request, messages.SUCCESS, f"Вы подтвердили {appointment.first_name}")
         return HttpResponseRedirect(request.path)
 
-    def get_context_data(self, *args, **kwargs):
+    def get_context_data(self, *args, **kwargs):            # Добавляет контекст переменную title, используется для заголовка страницы
         context = super().get_context_data(*args, **kwargs)
         appointments = Appointment.objects.all()
         context.update({
@@ -99,5 +105,5 @@ class ManageAppointmentTemplateView(ListView):
         })
         return context
 
-    def get_queryset(self):
+    def get_queryset(self):                                 # фильтрует записи на прием , показывает только те которые не были приняты
         return Appointment.objects.all().filter(accepted=False)

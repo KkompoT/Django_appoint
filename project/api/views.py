@@ -1,31 +1,39 @@
-from rest_framework import generics, viewsets
-from rest_framework.decorators import action
-from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAdminUser, IsAuthenticated
-from rest_framework.response import Response
-
+from rest_framework import generics
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from api.permissions import IsAdminOrReadOnly, IsOwnerOrReadOnly
 from api.serializers import AppointmentSerializer
-from appoint.models import Appointment, Specialist
+from appoint.models import Appointment
 
-
-# class AppointViewSet(viewsets.ModelViewSet):
-#     queryset = Appointment.objects.all()
-#     serializer_class = AppointmentSerializer
-
+""""Класс представления , который позволяет авторизованному пользователю
+ получать список объектов и создавать их:  Appointment"""
 
 
 class AppointmentAPIList(generics.ListCreateAPIView):
     queryset = Appointment.objects.all()
     serializer_class = AppointmentSerializer
-    permission_classes = (IsAuthenticatedOrReadOnly, )
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+    # authentication_classes = (TokenAuthentication,)
+
+
+""""Класс представления , который позволяет авторизованному пользователю
+ получать и обновлять объект Appointment"""
 
 
 class AppointmentAPIUpdate(generics.RetrieveUpdateAPIView):
     queryset = Appointment.objects.all()
     serializer_class = AppointmentSerializer
-    permission_classes = (IsOwnerOrReadOnly, )
+    permission_classes = (IsOwnerOrReadOnly,)
+    # authentication_classes = (TokenAuthentication,)
+
+
+""""Класс представления , который позволяет пользователю Администратору
+ получать и удалять объекты Appointment, ограничивает при этом доступ 
+ для других пользователей"""
+
 
 class AppintmentAPIDetailView(generics.RetrieveDestroyAPIView):
     queryset = Appointment.objects.all()
     serializer_class = AppointmentSerializer
     permission_classes = (IsAdminOrReadOnly,)
+    # authentication_classes = (TokenAuthentication, )

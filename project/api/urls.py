@@ -10,11 +10,11 @@ from rest_framework import routers
 
 urlpatterns = [
     # path('api/v1/', include(router.urls)),   # http://127.0.0.1:8000/api/v1/Appointment/
-    path('api/v1/drf-auth/', include('rest_framework.urls')),   # Авторизация с помощью кук
+    path('api/v1/drf-auth/', include('rest_framework.urls')),   # Авторизация на основе сессии
     path('api/v1/appointment/', AppointmentAPIList.as_view()),
     path('api/v1/appointment/<int:pk>/', AppointmentAPIUpdate.as_view()),
     path('api/v1/appointmentdetail/<int:pk>/', AppintmentAPIDetailView.as_view()),
     path('api/v1/auth/', include('djoser.urls')),
-    re_path(r'^auth/', include('djoser.urls.authtoken')),   # авторизация по токенам
+    # re_path(r'^auth/', include('djoser.urls.authtoken')),   # авторизация по токенам
 
 ]

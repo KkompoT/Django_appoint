@@ -1,9 +1,9 @@
-Django
-python-decouple
-pytz
-asgiref
-Django-debug-toolbar
-djangorestframework
-djoser
+Django~=4.2
+python-decouple~=3.8
+pytz~=2023.3
+asgiref~=3.6.0
+Django-debug-toolbar~=4.0.0
+djangorestframework~=3.14.0
+djoser~=2.2.0
 
 
