@@ -21,7 +21,7 @@ class Appointment(models.Model):
     accepted = models.BooleanField(default=False, verbose_name="Подтверждение")
     accepted_date = models.DateField(auto_now_add=False, null=True, blank=True, verbose_name="Назначеное время")
     spec = models.ForeignKey('Specialist', on_delete=models.CASCADE, null=True, blank=True, verbose_name="Специалист")
-    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Пользователь")
+    user = models.ForeignKey(User, on_delete=models.CASCADE,null=True, blank=True, verbose_name="Пользователь")
 
     def __str__(self):
         return self.first_name

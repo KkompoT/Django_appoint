@@ -6,7 +6,7 @@ from django.contrib.auth.forms import AuthenticationForm
 class AppointmentForm(forms.ModelForm):
     class Meta:
         model = Appointment
-        fields = ['first_name', 'last_name', 'email', 'phone', 'request']
+        fields = ['first_name', 'last_name', 'email', 'phone', 'request',]
 
 """Форма отображения полей для ввода логина и пароля"""
 class LoginUserForm(AuthenticationForm):

@@ -32,7 +32,7 @@ class AppointmentAPIUpdate(generics.RetrieveUpdateAPIView):
  для других пользователей"""
 
 
-class AppintmentAPIDetailView(generics.RetrieveDestroyAPIView):
+class AppointmentAPIDetailView(generics.RetrieveDestroyAPIView):
     queryset = Appointment.objects.all()
     serializer_class = AppointmentSerializer
     permission_classes = (IsAdminOrReadOnly,)
