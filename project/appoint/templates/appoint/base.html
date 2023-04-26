@@ -34,7 +34,7 @@
 
 
 {% load cache %}
-  {% cache 60 bar %}
+  {% cache 60 bar %}     <!-- кеширование бара, кроме оповещалок -->
  <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
 
         <div class="container"><a class="navbar-brand" href="{% url 'home' %}">Главная страница</a>
@@ -66,7 +66,7 @@
 
                         <li class="nav-item" role="presentation">
 
-                        <a href="{% url 'manage' %}" style="float: left;cursor:pointer;" aria-expanded="true" title="You Have New Appointments">
+                        <a href="{% url 'manage' %}" style="float: left;cursor:pointer;" aria-expanded="true" title="Есть не подтвержденные встречи">
                         <i class="far fa-bell" style="font-size: 20px; float: left; color: black">
                             </i>
                          </a>

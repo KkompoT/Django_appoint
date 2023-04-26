@@ -16,7 +16,7 @@ from .forms import LoginUserForm, AppointmentForm
 from django.core.mail import send_mail
 
 
-'''Представление которое позволяет пользователям связаться 
+'''Представление для отображения главной страницы и позволяющее пользователям связаться 
 с администраторами сайта через главную страницу по email'''
 class HomeTemplateView(TemplateView):
     template_name = "appoint/index.html"
